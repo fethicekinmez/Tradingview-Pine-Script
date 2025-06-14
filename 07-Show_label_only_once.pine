@@ -1,0 +1,13 @@
+//@version=6
+indicator("Bir Kez Label", overlay = true)
+
+// Kullanıcı girdisi
+userInput = 55
+txt = "Girilen Sayı: " + str.tostring(userInput)
+
+// Sadece bir kez label oluşturmak için sabit değişken
+var label myLabel = na
+
+// Sadece son bar'da ve daha önce çizilmediyse label oluştur
+if barstate.islast and na(myLabel)
+    myLabel := label.new(bar_index, close, text=txt, style=label.style_label_left, textcolor=color.white, size=size.normal, color=color.red)
