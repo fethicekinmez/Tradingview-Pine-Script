@@ -1,0 +1,20 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © fethicekinmez
+
+//@version=6
+// pyramiding = 0 -> sadece bir pozisyon açılabilir
+// margin_long = 100 -> long pozisyon için gereken teminat %100
+// margin_short = 100 -> short pozisyon için gereken teminat %100
+strategy(title = "Stratejim", overlay=true, pyramiding = 0, margin_long = 100, margin_short = 100,fill_orders_on_standard_ohlc = true)
+
+// crossover 14 SMA, 28 SMA yı yukarı keserse long pozisyon aç
+longCondition = ta.crossover(ta.sma(close, 14), ta.sma(close, 28))
+if (longCondition)
+    //strategy.entry--> pozisyon açmak için kullanılır
+    strategy.entry("My Long Entry Id", direction = strategy.long)
+
+// crossunder 14 SMA, 28 SMA yı aşağı keserse short pozisyon aç
+shortCondition = ta.crossunder(ta.sma(close, 14), ta.sma(close, 28))
+if (shortCondition)
+    //strategy.entry--> pozisyon açmak için kullanılır
+    strategy.entry("My Short Entry Id", direction = strategy.short)
