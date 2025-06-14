@@ -1,0 +1,6 @@
+//@version=5
+// overlay = true, grafiğin üzerine çizim yapar
+// scale = scale.right, sağ tarafta ölçek gösterir
+indicator(title = "Deneme Komut Dosyam", overlay = true, scale = scale.right)
+
+plot(close, linewidth = 3, color = color.blue)
