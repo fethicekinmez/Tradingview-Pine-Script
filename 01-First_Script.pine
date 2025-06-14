@@ -1,0 +1,7 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © fethicekinmez
+
+//@version=6
+indicator("Komut dosyam")
+plot(close) // Bu, kapanış fiyatını çizen basit bir gösterge
+plot(open, color = color.red) // Bu, açılış fiyatını çizen başka bir gösterge
